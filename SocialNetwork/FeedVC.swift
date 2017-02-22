@@ -16,7 +16,7 @@ class FeedVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.contentInset = UIEdgeInsets(top: 146, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 81, left: 0, bottom: 0, right: 0)
     }
     
     @IBAction func signOutTapped(_ sender: Any) {
@@ -33,12 +33,11 @@ class FeedVC: UIViewController {
 
 extension FeedVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "newCell")
-        cell.textLabel?.text = "Hello"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
         return cell
     }
 }
