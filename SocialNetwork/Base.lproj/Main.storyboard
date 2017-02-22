@@ -105,7 +105,7 @@
                                         </constraints>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.87419734589999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="2"/>
@@ -127,6 +127,9 @@
                                                 <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="signInTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ayu-lD-Qzu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -150,6 +153,10 @@
                             <constraint firstItem="tZM-Wn-UgB" firstAttribute="top" secondItem="v30-WA-LUv" secondAttribute="bottom" constant="8" id="thn-Fs-y8l"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="lGb-Ob-pKh" id="VSn-36-uHj"/>
+                        <outlet property="passwordField" destination="j22-Q0-wVf" id="faw-NY-NVc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
