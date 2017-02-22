@@ -17,6 +17,9 @@
 		911F56151E5D587D007DC061 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911F56141E5D587D007DC061 /* RoundButton.swift */; };
 		911F56171E5D5B35007DC061 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911F56161E5D5B35007DC061 /* CustomTextField.swift */; };
 		911F56191E5D5C55007DC061 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911F56181E5D5C55007DC061 /* CustomButton.swift */; };
+		91D42B791E5D8EF4007AF92D /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D42B781E5D8EF4007AF92D /* FeedVC.swift */; };
+		91D42B7B1E5D9E14007AF92D /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D42B7A1E5D9E14007AF92D /* CustomImageView.swift */; };
+		91E069BC1E5D88FC002B13AC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E069BB1E5D88FC002B13AC /* Constants.swift */; };
 		EE1963A3202DDECC47F914BD /* Pods_SocialNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9DC6F6E981AD7518CF07F6 /* Pods_SocialNetwork.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +38,10 @@
 		911F56141E5D587D007DC061 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		911F56161E5D5B35007DC061 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		911F56181E5D5C55007DC061 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		91D42B781E5D8EF4007AF92D /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		91D42B7A1E5D9E14007AF92D /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		91E069BA1E5D82B6002B13AC /* SocialNetwork.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SocialNetwork.entitlements; sourceTree = "<group>"; };
+		91E069BB1E5D88FC002B13AC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B3B031C0B96F54C4D5C3ED0B /* Pods-SocialNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialNetwork/Pods-SocialNetwork.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				911F55FD1E5D4D73007DC061 /* SignInVC.swift */,
+				91D42B781E5D8EF4007AF92D /* FeedVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -101,6 +108,7 @@
 				911F56141E5D587D007DC061 /* RoundButton.swift */,
 				911F56161E5D5B35007DC061 /* CustomTextField.swift */,
 				911F56181E5D5C55007DC061 /* CustomButton.swift */,
+				91D42B7A1E5D9E14007AF92D /* CustomImageView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -108,6 +116,7 @@
 		911F56111E5D56A2007DC061 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				91E069BB1E5D88FC002B13AC /* Constants.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -260,9 +269,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				911F56151E5D587D007DC061 /* RoundButton.swift in Sources */,
+				91D42B7B1E5D9E14007AF92D /* CustomImageView.swift in Sources */,
 				911F56131E5D56C9007DC061 /* CustomView.swift in Sources */,
 				911F56191E5D5C55007DC061 /* CustomButton.swift in Sources */,
 				911F55FE1E5D4D73007DC061 /* SignInVC.swift in Sources */,
+				91D42B791E5D8EF4007AF92D /* FeedVC.swift in Sources */,
+				91E069BC1E5D88FC002B13AC /* Constants.swift in Sources */,
 				911F55FC1E5D4D73007DC061 /* AppDelegate.swift in Sources */,
 				911F56171E5D5B35007DC061 /* CustomTextField.swift in Sources */,
 			);

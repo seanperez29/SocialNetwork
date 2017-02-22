@@ -7,14 +7,22 @@
 //
 
 import UIKit
+@IBDesignable
 
 class CustomView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        layer.shadowColor = UIColor(red: 120/255, green: 120/255, blue: 120/255, alpha: 0.6).cgColor
+        layer.shadowColor = UIColor(red: Constants.Keys.grayShadow, green: Constants.Keys.grayShadow, blue: Constants.Keys.grayShadow, alpha: 0.6).cgColor
         layer.shadowOpacity = 0.8
         layer.shadowRadius = 5.0
         layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+    }
+    
+    @IBInspectable var cornerRadius: CGFloat = 0 {
+        didSet {
+            layer.cornerRadius = cornerRadius
+            layer.masksToBounds = cornerRadius > 0
+        }
     }
 }

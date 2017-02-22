@@ -13,7 +13,7 @@ class CustomTextField: UITextField {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        layer.borderColor = UIColor(red: 120/255, green: 120/255, blue: 120/255, alpha: 0.2).cgColor
+        layer.borderColor = UIColor(red: Constants.Keys.grayShadow, green: Constants.Keys.grayShadow, blue: Constants.Keys.grayShadow, alpha: 0.2).cgColor
         layer.borderWidth = 1.0
     }
     
