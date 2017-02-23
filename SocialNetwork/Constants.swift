@@ -16,4 +16,8 @@ class Constants {
         static let keyUID = "uid"
         static let uniqueServiceName = "com.SeanPerez.SocialNetwork"
     }
+    
+    struct Cache {
+        static var imageCache: NSCache<NSString, UIImage> = NSCache()
+    }
 }
