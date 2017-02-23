@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9116B3A01E5EAF2600425AAF /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116B39F1E5EAF2600425AAF /* DataService.swift */; };
+		9116B3A21E5EC26600425AAF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116B3A11E5EC26600425AAF /* Post.swift */; };
 		911F55FC1E5D4D73007DC061 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911F55FB1E5D4D73007DC061 /* AppDelegate.swift */; };
 		911F55FE1E5D4D73007DC061 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911F55FD1E5D4D73007DC061 /* SignInVC.swift */; };
 		911F56011E5D4D73007DC061 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 911F55FF1E5D4D73007DC061 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 		1F9DC6F6E981AD7518CF07F6 /* Pods_SocialNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26E2BDF744A83B61C0B98ACB /* Pods-SocialNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialNetwork/Pods-SocialNetwork.debug.xcconfig"; sourceTree = "<group>"; };
 		9116B39F1E5EAF2600425AAF /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		9116B3A11E5EC26600425AAF /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		911F55F81E5D4D73007DC061 /* SocialNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		911F55FB1E5D4D73007DC061 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		911F55FD1E5D4D73007DC061 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				91E069BB1E5D88FC002B13AC /* Constants.swift */,
+				9116B3A11E5EC26600425AAF /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				911F55FE1E5D4D73007DC061 /* SignInVC.swift in Sources */,
 				9116B3A01E5EAF2600425AAF /* DataService.swift in Sources */,
 				91D42B791E5D8EF4007AF92D /* FeedVC.swift in Sources */,
+				9116B3A21E5EC26600425AAF /* Post.swift in Sources */,
 				91E069BC1E5D88FC002B13AC /* Constants.swift in Sources */,
 				911F55FC1E5D4D73007DC061 /* AppDelegate.swift in Sources */,
 				911F56171E5D5B35007DC061 /* CustomTextField.swift in Sources */,
