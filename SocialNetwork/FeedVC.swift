@@ -17,6 +17,9 @@ class FeedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.contentInset = UIEdgeInsets(top: 81, left: 0, bottom: 0, right: 0)
+        DataService.dataService.REF_POSTS.observe(.value, with: { (snapshot) in
+            print(snapshot.value!)
+        })
     }
     
     @IBAction func signOutTapped(_ sender: Any) {
