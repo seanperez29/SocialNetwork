@@ -326,9 +326,10 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="W7D-aX-RHI">
                                         <rect key="frame" x="8" y="8" width="327" height="49"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="AGk-0y-Yfr" customClass="CustomImageView" customModule="SocialNetwork" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="AGk-0y-Yfr" customClass="CustomImageView" customModule="SocialNetwork" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="49" height="49"/>
                                                 <color key="backgroundColor" red="0.0" green="0.51372549020000002" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="49" id="81N-xg-Dwy"/>
                                                     <constraint firstAttribute="width" constant="49" id="unf-xy-BSj"/>
@@ -338,6 +339,9 @@
                                                         <real key="value" value="0.0"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="vvA-yI-Xv0" appends="YES" id="I40-zz-hGu"/>
+                                                </connections>
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add a caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eVr-og-x2G" customClass="CustomTextField" customModule="SocialNetwork" customModuleProvider="target">
                                                 <rect key="frame" x="59" y="0.0" width="209" height="49"/>
@@ -387,6 +391,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="postImage" destination="AGk-0y-Yfr" id="Hx1-qH-TSe"/>
                         <outlet property="tableView" destination="QuW-Th-GzI" id="Vch-ru-GWQ"/>
                     </connections>
                 </viewController>
@@ -394,6 +399,11 @@
                 <tapGestureRecognizer id="drR-iB-GFd">
                     <connections>
                         <action selector="signOutTapped:" destination="bpn-gw-JhM" id="WYy-vR-nN2"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="vvA-yI-Xv0">
+                    <connections>
+                        <action selector="addImageTapped:" destination="bpn-gw-JhM" id="bSu-Ld-wzj"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

@@ -13,7 +13,9 @@ import Firebase
 class FeedVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var postImage: UIImageView!
     var posts = [Post]()
+    var imagePicker: UIImagePickerController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +45,14 @@ class FeedVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func addImageTapped(_ sender: Any) {
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    
 }
 
 extension FeedVC: UITableViewDataSource, UITableViewDelegate {
@@ -60,5 +70,14 @@ extension FeedVC: UITableViewDataSource, UITableViewDelegate {
         let post = posts[indexPath.row]
         cell.configureCell(post: post)
         return cell
+    }
+}
+
+extension FeedVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            postImage.image = image
+        }
+        imagePicker.dismiss(animated: true, completion: nil)
     }
 }
