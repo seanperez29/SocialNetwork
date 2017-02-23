@@ -30,4 +30,8 @@ class DataService {
         return _REF_USERS
     }
     
+    func createFirebaseDBUser(uid: String, userData: [String:String]) {
+        REF_USERS.child(uid).updateChildValues(userData)
+    }
+    
 }
