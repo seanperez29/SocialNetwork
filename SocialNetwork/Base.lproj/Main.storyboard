@@ -357,6 +357,9 @@
                                                     <constraint firstAttribute="width" constant="49" id="wzb-jL-2IX"/>
                                                 </constraints>
                                                 <state key="normal" image="add-post"/>
+                                                <connections>
+                                                    <action selector="postButtonTapped:" destination="bpn-gw-JhM" eventType="touchUpInside" id="OsG-e2-4zx"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -391,17 +394,18 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="captionField" destination="eVr-og-x2G" id="2Ri-sH-uKR"/>
                         <outlet property="postImage" destination="AGk-0y-Yfr" id="Hx1-qH-TSe"/>
                         <outlet property="tableView" destination="QuW-Th-GzI" id="Vch-ru-GWQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8h-Mr-nlf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="drR-iB-GFd">
+                <tapGestureRecognizer id="drR-iB-GFd" userLabel="Signout">
                     <connections>
                         <action selector="signOutTapped:" destination="bpn-gw-JhM" id="WYy-vR-nN2"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="vvA-yI-Xv0">
+                <tapGestureRecognizer id="vvA-yI-Xv0" userLabel="PickPhoto">
                     <connections>
                         <action selector="addImageTapped:" destination="bpn-gw-JhM" id="bSu-Ld-wzj"/>
                     </connections>

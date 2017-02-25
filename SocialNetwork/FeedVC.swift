@@ -14,8 +14,10 @@ class FeedVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var postImage: UIImageView!
+    @IBOutlet weak var captionField: CustomTextField!
     var posts = [Post]()
     var imagePicker: UIImagePickerController!
+    var imageSelected = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,6 @@ class FeedVC: UIViewController {
         DataService.dataService.REF_POSTS.observe(.value, with: { (snapshot) in
             if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for snap in snapshot {
-                    print("SNAP: \(snap)")
                     if let postDict = snap.value as? [String:AnyObject] {
                         let key = snap.key
                         let post = Post(postKey: key, postData: postDict)
@@ -52,6 +53,41 @@ class FeedVC: UIViewController {
         present(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func postButtonTapped(_ sender: Any) {
+        guard let caption = captionField.text, caption != "" else {
+            print("Must enter a caption")
+            return
+        }
+        guard let image = postImage.image, imageSelected == true else {
+            print("Must pick an image")
+            return
+        }
+        if let imgData = UIImageJPEGRepresentation(image, 0.2) {
+            let imgUID = NSUUID().uuidString
+            let metaData = FIRStorageMetadata()
+            metaData.contentType = "image/jpeg"
+            DataService.dataService.REF_POST_IMAGES.child(imgUID).put(imgData, metadata: metaData) { (metadata, error) in
+                if error != nil {
+                    print("Unable to upload image to Firebase storage")
+                } else {
+                    print("Successfully uploaded image to Firebase storage")
+                    if let downloadURL = metadata?.downloadURL()?.absoluteString {
+                        self.postToFirebase(imageUrl: downloadURL)
+                    }
+                }
+            }
+        }
+    }
+    
+    func postToFirebase(imageUrl: String) {
+        let post: [String:Any] = ["caption": captionField.text!, "imageUrl": imageUrl, "likes": 0]
+        let firebasePost = DataService.dataService.REF_POSTS.childByAutoId()
+        firebasePost.setValue(post)
+        captionField.text = ""
+        postImage.image = UIImage(named: "add-image")
+        imageSelected = false
+        tableView.reloadData()
+    }
     
 }
 
@@ -82,6 +118,7 @@ extension FeedVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             postImage.image = image
         }
+        imageSelected = true
         imagePicker.dismiss(animated: true, completion: nil)
     }
 }
