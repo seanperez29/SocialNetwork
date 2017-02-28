@@ -18,6 +18,8 @@ class FeedVC: UIViewController {
     var posts = [Post]()
     var imagePicker: UIImagePickerController!
     var imageSelected = false
+    var alreadyExists = false
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +30,18 @@ class FeedVC: UIViewController {
                     if let postDict = snap.value as? [String:AnyObject] {
                         let key = snap.key
                         let post = Post(postKey: key, postData: postDict)
-                        self.posts.append(post)
+                        for oldPost in self.posts {
+                            if oldPost.postKey == post.postKey {
+                                self.alreadyExists = true
+                                break
+                            } else {
+                                self.alreadyExists = false
+                            }
+                        }
+                        if self.alreadyExists == true {
+                        } else {
+                            self.posts.append(post)
+                        }
                     }
                 }
             }

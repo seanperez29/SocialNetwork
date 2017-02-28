@@ -16,6 +16,16 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var caption: UITextView!
     @IBOutlet weak var likesLabel: UILabel!
+    @IBOutlet weak var likeImage: UIImageView!
+    let likesRef = DataService.dataService.REF_USER_CURRENT.child("likes")
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(likeTapped))
+        tap.numberOfTouchesRequired = 1
+        likeImage.addGestureRecognizer(tap)
+        likeImage.isUserInteractionEnabled = true
+    }
     
     func configureCell(post: Post, image: UIImage? = nil) {
         self.caption.text = post.caption
@@ -36,6 +46,24 @@ class PostCell: UITableViewCell {
                 }
             })
         }
+        
+        likesRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let _ = snapshot.value as? NSNull {
+                self.likeImage.image = #imageLiteral(resourceName: "empty-heart")
+            } else {
+                self.likeImage.image = #imageLiteral(resourceName: "filled-heart")
+            }
+        })
+    }
+    
+    func likeTapped(sender: UITapGestureRecognizer) {
+        likesRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let _ = snapshot.value as? NSNull {
+                self.likeImage.image = #imageLiteral(resourceName: "filled-heart")
+            } else {
+                self.likeImage.image = #imageLiteral(resourceName: "empty-heart")
+            }
+        })
     }
 
 }
