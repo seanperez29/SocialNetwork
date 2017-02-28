@@ -17,7 +17,8 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var caption: UITextView!
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var likeImage: UIImageView!
-    let likesRef = DataService.dataService.REF_USER_CURRENT.child("likes")
+    var post: Post!
+    var likesRef: FIRDatabaseReference!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +29,8 @@ class PostCell: UITableViewCell {
     }
     
     func configureCell(post: Post, image: UIImage? = nil) {
+        self.post = post
+        likesRef = DataService.dataService.REF_USER_CURRENT.child("likes").child(post.postKey)
         self.caption.text = post.caption
         self.likesLabel.text = String(post.likes)
         
@@ -60,8 +63,12 @@ class PostCell: UITableViewCell {
         likesRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if let _ = snapshot.value as? NSNull {
                 self.likeImage.image = #imageLiteral(resourceName: "filled-heart")
+                self.post.adjustLikes(addLike: true)
+                self.likesRef.setValue(true)
             } else {
                 self.likeImage.image = #imageLiteral(resourceName: "empty-heart")
+                self.post.adjustLikes(addLike: false)
+                self.likesRef.removeValue()
             }
         })
     }
